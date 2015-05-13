@@ -8,4 +8,12 @@ cask :v1 => 'spotify091527' do
   license :gratis
 
   app 'Spotify.app'
+
+  caveats <<-EOS.undent
+    Block automatic updates:
+      touch ~/Library/Application\\ Support/Spotify/Spotify_new.archive
+      touch ~/Library/Application\\ Support/Spotify/Spotify_new.archive.sig
+      chflags uchg ~/Library/Application\\ Support/Spotify/Spotify_new.archive
+      chflags uchg ~/Library/Application\\ Support/Spotify/Spotify_new.archive.sig
+  EOS
 end
